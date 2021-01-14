@@ -1,7 +1,6 @@
 from .base_page import BasePage
 from selenium.webdriver.common.by import By
 from .locators import LoginPageLocators
-import time
 
 class LoginPage(BasePage):
     def should_be_login_page(self):
@@ -11,7 +10,7 @@ class LoginPage(BasePage):
 
    
     def should_be_login_url(self):
-        assert self.is_element_present(*LoginPageLocators.REGISTER_LINK), 'No link'
+        assert self.is_element_present(*LoginPageLocators.REGISTER_LINK), 'No register link'
         
 
     def should_be_login_form(self):
