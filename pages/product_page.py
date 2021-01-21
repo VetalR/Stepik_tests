@@ -2,6 +2,7 @@ from .base_page import BasePage
 from selenium.webdriver.common.by import By
 from .locators import ProductPageLocators
 import math
+from selenium.common.exceptions import NoAlertPresentException
 
 class ProductPage(BasePage):
     
@@ -9,6 +10,7 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.BASKET_LINK), 'No BASKET link'
         self.browser.find_element(By.CSS_SELECTOR, ".btn.btn-lg.btn-primary").click()
 
+    
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
