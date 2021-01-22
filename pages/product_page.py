@@ -35,3 +35,6 @@ class ProductPage(BasePage):
         price_page = self.browser.find_element(By.CSS_SELECTOR, 'p.price_color').text
         price_basket = self.browser.find_element(By.CSS_SELECTOR, 'div.alertinner p strong').text
         assert price_page == price_basket, 'not equal price'
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
