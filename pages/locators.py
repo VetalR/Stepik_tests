@@ -11,4 +11,4 @@ class LoginPageLocators():
 
 class ProductPageLocators:
     BASKET_LINK = (By.CSS_SELECTOR, ".btn.btn-lg.btn-primary")
-    SUCCESS_MESSAGE = (By.CSS_SELECTOR, 'WTF')
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, '#messages .alert.alert-safe.alert-noicon.alert-success.fade.in')
