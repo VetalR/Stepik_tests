@@ -2,6 +2,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from .locators import BasePageLocators
 
 class BasePage():
     def __init__(self, browser, url, timeout=10):
@@ -35,3 +36,13 @@ class BasePage():
             return True
 
         return False
+
+    def go_to_login_page(self):     # переход к странице логина
+        self.browser.find_element(*BasePageLocators.LOGIN_LINK).click()
+
+    def should_be_login_link(self):     # проверка присутствия элемента логина
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
+    def should_be_authorized_user(self):    # проверка того, что пользователь залогинен
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"

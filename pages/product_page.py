@@ -7,7 +7,7 @@ from selenium.common.exceptions import NoAlertPresentException
 class ProductPage(BasePage):
     
     def add_to_basket(self):
-        assert self.is_element_present(*ProductPageLocators.BASKET_LINK), 'No BASKET link'
+        assert self.is_element_present(*ProductPageLocators.BASKET_LINK), 'No BASKET add link'
         self.browser.find_element(By.CSS_SELECTOR, ".btn.btn-lg.btn-primary").click()
 
     
